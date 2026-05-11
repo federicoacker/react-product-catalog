@@ -8,7 +8,8 @@ import { useState } from "react";
 
 const templateSearch = {
     nameSearch: '',
-    categorySearch: ''
+    categorySearch: '',
+    sorting:'descending'
 }
 
 function Main() {

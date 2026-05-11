@@ -21,13 +21,20 @@ function calculateCategories(products) {
             name: category.charAt(0).toUpperCase() + category.slice(1)
         }
     })
+    categoryObjectArray.unshift({
+        id:-1,
+        name:"Tutti",
+        value:""
+    })
     return categoryObjectArray;
 }
 
 function filterProducts(searchObject, products, setFilteredProducts, setCount, count) {
     setCount(0);
+    const sortedProductArray = sortProducts(products, searchObject.sorting);
+    console.log(products);
     setFilteredProducts(
-        products.filter(
+        sortedProductArray.filter(
             product => {
                 const nameSearch = searchObject.nameSearch.trim().toLowerCase();
                 const categorySearch = searchObject.categorySearch
@@ -55,7 +62,18 @@ function filterProducts(searchObject, products, setFilteredProducts, setCount, c
         )
     );
 }
+function sortProducts(products, order){
+    let sortedProducts;
+    if(order === "descending"){
+        sortedProducts = products.sort((product1, product2) => product2.price - product1.price);
+    }
+    else if(order === "ascending"){
+        sortedProducts = products.sort((product1, product2) => product1.price - product2.price)
+    }
+    console.log(sortedProducts);
 
+    return sortedProducts;
+}
 export default fetchProducts;
 export {
     calculateCategories,

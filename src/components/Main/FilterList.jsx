@@ -19,7 +19,6 @@ function FilterList({ products, setSearch, search, count }) {
     }
 
     const options = calculateCategories(products);
-    console.log(options);
 
     return (
         <>
@@ -29,6 +28,7 @@ function FilterList({ products, setSearch, search, count }) {
                     <Row>
                         <Col xs={12}>
                             <Filter
+                                label="Cerca"
                                 type="text"
                                 value={search.nameSearch}
                                 name="nameSearch"
@@ -37,6 +37,7 @@ function FilterList({ products, setSearch, search, count }) {
                         </Col>
                         <Col xs={12}>
                             <Filter
+                                label="Categorie"
                                 type="select"
                                 value={search.categorySearch}
                                 name="categorySearch"
@@ -44,11 +45,32 @@ function FilterList({ products, setSearch, search, count }) {
                                 options={options}
                             />
                         </Col>
+                        <Col xs={12}>
+                            <Filter
+                                label="Ordinamento"
+                                type="select"
+                                value={search.sorting}
+                                name="sorting"
+                                changeHandler={changeHandler}
+                                options={
+                                    [
+                                        {
+                                            id:1,
+                                            name:"Prezzo Discendente",
+                                            value:"descending"
+                                        },
+                                        {
+                                            id:2,
+                                            name:"Prezzo Ascendente",
+                                            value:"ascending"
+                                        }
+                                    ]
+                                }
+                            />
+                        </Col>
                     </Row>
                     {count !== 20 && 
-                    <Row>
-                        <h5>Trovati {count} risultati!</h5>
-                    </Row>
+                    <h5>Trovati {count} risultati!</h5>
                     }
                 </Container>
             </div>
