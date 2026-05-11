@@ -5,11 +5,13 @@ import { filterProducts } from "../../utils/manageProducts.js";
 import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useState } from "react";
+import LoadingState from "./LoadingState.jsx";
+import ErrorState from "./ErrorState.jsx";
 
 const templateSearch = {
     nameSearch: '',
     categorySearch: '',
-    sorting:'descending'
+    sorting: 'descending'
 }
 
 function Main() {
@@ -18,6 +20,7 @@ function Main() {
     const [search, setSearch] = useState(templateSearch);
     const [loaded, setLoaded] = useState(false);
     const [count, setCount] = useState(0);
+    const [loadError, setLoadError] = useState(false);
 
     useEffect(
         () => {
@@ -33,13 +36,23 @@ function Main() {
                         setLoaded(true);
                     }
                 )
-                .catch(error => console.error(error));
+                .catch(error =>{
+                    setLoadError(true);
+                    console.error(error)
+                    });
         }, [search]
     );
 
     return (
-        loaded &&
-        <main>
+
+        <main data-bs-theme="dark">
+            {(!loaded && loadError) &&
+            <ErrorState/>
+            }
+            {(!loaded && !loadError) &&
+            <LoadingState />
+            }
+            {(loaded && !loadError) &&
             <Container fluid="xl">
                 <Row>
                     <Col xs={4} md={3} className="filter-list-wrapper">
@@ -50,6 +63,7 @@ function Main() {
                     </Col>
                 </Row>
             </Container>
+            }
         </main>
     )
 }

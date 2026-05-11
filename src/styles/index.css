@@ -10,6 +10,10 @@
   componenti. Per stili specifici di un singolo componente è preferibile
   usare un CSS Module (es. `NomeComponente.module.css`).
 */
+body{
+  background-color:var(--bs-dark);
+  color: var(--bs-danger);
+}
 .product-img {
   min-height: 200px;
   max-height: 200px;

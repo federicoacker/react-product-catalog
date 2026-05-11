@@ -69,8 +69,11 @@ function FilterList({ products, setSearch, search, count }) {
                             />
                         </Col>
                     </Row>
-                    {count !== 20 && 
+                    {(count !== 20 && count !== 0) && 
                     <h5>Trovati {count} risultati!</h5>
+                    }
+                    {count === 0 &&
+                    <h5>Ci dispiace, non sono stati trovati articoli che rispettino i tuoi criteri di ricerca</h5>
                     }
                 </Container>
             </div>
