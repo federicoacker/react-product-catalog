@@ -12,10 +12,12 @@ function Product({ product }) {
                     {product.description}
                 </Card.Text>
             </Card.Body>
-            <Card.Footer>
-                <hr />
+            <Card.Footer className="d-flex justify-content-between">
                 <Card.Text>
                     <strong>Rating: {product.rating.rate}/5 <br /> {product.rating.count} recensioni</strong>
+                </Card.Text>
+                <Card.Text>
+                    <strong>Prezzo: {product.price} &euro;</strong>
                 </Card.Text>
             </Card.Footer>
         </Card>
