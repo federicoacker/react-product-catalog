@@ -16,6 +16,7 @@ function Main() {
     const [filteredProducts, setFilteredProducts] = useState(products);
     const [search, setSearch] = useState(templateSearch);
     const [loaded, setLoaded] = useState(false);
+    const [count, setCount] = useState(0);
 
     useEffect(
         () => {
@@ -27,7 +28,7 @@ function Main() {
                     }
                 ).then(
                     result => {
-                        filterProducts(search, result, setFilteredProducts);
+                        filterProducts(search, result, setFilteredProducts, setCount, count);
                         setLoaded(true);
                     }
                 )
@@ -41,7 +42,7 @@ function Main() {
             <Container fluid="xl">
                 <Row>
                     <Col xs={4} md={3} className="filter-list-wrapper">
-                        <FilterList products={products} setSearch={setSearch} search={search}></FilterList>
+                        <FilterList products={products} setSearch={setSearch} search={search} count={count}></FilterList>
                     </Col>
                     <Col xs={8} md={9}>
                         <ProductList products={filteredProducts}></ProductList>

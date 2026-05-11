@@ -24,25 +24,33 @@ function calculateCategories(products) {
     return categoryObjectArray;
 }
 
-function filterProducts(searchObject, products, setFilteredProducts) {
-    console.log(searchObject);
+function filterProducts(searchObject, products, setFilteredProducts, setCount, count) {
+    setCount(0);
     setFilteredProducts(
         products.filter(
             product => {
                 const nameSearch = searchObject.nameSearch.trim().toLowerCase();
                 const categorySearch = searchObject.categorySearch
+                let result;
+
                 if (nameSearch === "" && categorySearch === "") {
-                    return true;
+                    result = true;
                 }
                 else if (nameSearch !== "" && categorySearch === "") {
-                    return product.title.toLowerCase().startsWith(nameSearch);
+                    result = product.title.toLowerCase().startsWith(nameSearch);
                 }
                 else if (categorySearch !== "" && nameSearch === "") {
-                    return product.category === categorySearch;
+                    result = product.category === categorySearch;
                 }
                 else {
-                    return product.category === categorySearch && product.title.toLowerCase().startsWith(nameSearch);
+                    result = product.category === categorySearch && product.title.toLowerCase().startsWith(nameSearch);
                 }
+
+                if (result) {
+                    setCount(count => count + 1);
+                }
+
+                return result;
             }
         )
     );

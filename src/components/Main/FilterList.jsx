@@ -4,7 +4,7 @@ import Filter from "./Filter";
 import { calculateCategories } from "../../utils/manageProducts";
 
 
-function FilterList({ products, setSearch, search }) {
+function FilterList({ products, setSearch, search, count }) {
     function changeHandler(event) {
         const target = event.target;
         const name = target.name;
@@ -45,6 +45,11 @@ function FilterList({ products, setSearch, search }) {
                             />
                         </Col>
                     </Row>
+                    {count !== 20 && 
+                    <Row>
+                        <h5>Trovati {count} risultati!</h5>
+                    </Row>
+                    }
                 </Container>
             </div>
         </>
