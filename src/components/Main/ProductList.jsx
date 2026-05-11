@@ -1,7 +1,18 @@
+import { Col, Container, Row } from "react-bootstrap";
+import Product from "./Product";
 
-function ProductList() {
+function ProductList({products}) {
     return (
-        <div>ProductList</div>
+        <Container>
+            <Row className="row-gap-3">
+                {products.map(product => 
+                    <Col xs={12} md={6} lg={4} key={product.id}>
+                        <Product 
+                        product={product}/>
+                    </Col>
+                )}
+            </Row>
+        </Container>
     )
 }
 

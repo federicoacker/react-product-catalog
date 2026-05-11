@@ -10,3 +10,24 @@
   componenti. Per stili specifici di un singolo componente è preferibile
   usare un CSS Module (es. `NomeComponente.module.css`).
 */
+.product-img {
+  min-height: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
+.product-title {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:130px;
+  max-height:150px;
+}
+.product-description {
+  flex-basis: 150px;
+  max-height: 200px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.product-card {
+  height: 100%;
+}

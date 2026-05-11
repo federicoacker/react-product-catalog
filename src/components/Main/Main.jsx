@@ -23,11 +23,11 @@ function Main() {
         <main>
             <Container>
                 <Row>
-                    <Col xs={4}>
-                        <FilterList></FilterList>
+                    <Col xs={4} md={2}>
+                        <FilterList products={products}></FilterList>
                     </Col>
-                    <Col xs={8}>
-                        <ProductList></ProductList>
+                    <Col xs={8} md={10}>
+                        <ProductList products={products}></ProductList>
                     </Col>
                 </Row>
             </Container>
