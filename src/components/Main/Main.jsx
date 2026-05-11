@@ -7,13 +7,16 @@ import { useState } from "react";
 
 function Main() {
     const [products, setProducts] = useState([])
+    const [filteredProducts, setFilteredProducts] = useState(products);
     console.log(products);
-
     useEffect(
         () => {
             fetchProducts()
                 .then(
-                    products => setProducts(products)
+                    products => {
+                        setProducts(products);
+                        setFilteredProducts(products);
+                    }
                 )
                 .catch(error => console.error(error));
         }, []
@@ -27,7 +30,7 @@ function Main() {
                         <FilterList products={products}></FilterList>
                     </Col>
                     <Col xs={8} md={10}>
-                        <ProductList products={products}></ProductList>
+                        <ProductList products={filteredProducts} setFilteredProducts={setFilteredProducts}></ProductList>
                     </Col>
                 </Row>
             </Container>
