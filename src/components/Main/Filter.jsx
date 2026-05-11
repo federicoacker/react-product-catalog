@@ -1,12 +1,19 @@
 
-function Filter({type, changeHandler, value, options}) {
+function Filter({ type, changeHandler, value, options, name }) {
     return (
-        type === "text" ? 
-        <input type="text" onChange={ changeHandler } value={ value }/> :
+        type === "text" ?
+            <div>
+                <label htmlFor={name}>Cerca </label>
+                <input className="form-control mb-3" type="text" onChange={changeHandler} value={value} name={name} id={name} placeholder="Cerca" />
+            </div> :
         type === "select" ?
-        <select value={ value } onChange={ changeHandler }>
-            {options.map(option => <option key={ option.id } value={ option.value }>{ option.name }</option>)}
-        </select> :
+            <div>
+                <label htmlFor={name}>Categorie </label>
+                <select className="form-control mb-3" value={value} onChange={changeHandler} name={name} id={name}>
+                    <option value="">Tutti</option>
+                        {options.map(option => <option key={option.id} value={option.value}>{option.name}</option>)}
+                </select>
+            </div> :
         null
     )
 }

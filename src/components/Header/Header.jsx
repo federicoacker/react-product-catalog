@@ -1,7 +1,11 @@
-
+import { Container } from "react-bootstrap"
 function Header() {
     return (
-        <div>Header</div>
+        <header className="header mb-5">
+            <Container>
+                <h1 className="text-center">React Product Catalog</h1>
+            </Container>
+        </header>
     )
 }
 

@@ -31,3 +31,11 @@
 .product-card {
   height: 100%;
 }
+.filter-list-wrapper{
+  position:relative;
+}
+.filter-list{
+  position:sticky;
+  left:0;
+  top:0;
+}
