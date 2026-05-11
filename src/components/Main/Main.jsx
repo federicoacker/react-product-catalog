@@ -1,7 +1,13 @@
+import FilterList from "./FilterList.jsx";
+import ProductList from "./ProductList.jsx";
 
 function Main() {
     return (
-        <div>Main</div>
+        <main>
+            <div>Main</div>
+            <FilterList></FilterList>
+            <ProductList></ProductList>
+        </main>
     )
 }
 
