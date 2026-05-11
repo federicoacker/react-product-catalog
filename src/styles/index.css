@@ -23,8 +23,7 @@ body{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  min-height:130px;
-  max-height:150px;
+  height:150px;
 }
 .product-description {
   flex-basis: 150px;
@@ -34,6 +33,9 @@ body{
 }
 .product-card {
   height: 100%;
+}
+.product-category {
+  text-transform:capitalize;
 }
 .filter-list-wrapper{
   position:relative;
