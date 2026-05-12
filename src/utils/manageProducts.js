@@ -1,10 +1,4 @@
-const API_URL = "https://fakestoreapi.com/products";
-function fetchProducts() {
-    const productsPromise = fetch(API_URL)
-        .then(response => response.json());
 
-    return productsPromise;
-}
 
 function calculateCategories(products) {
     const categories = [];
@@ -74,7 +68,7 @@ function sortProducts(products, order){
 
     return sortedProducts;
 }
-export default fetchProducts;
+
 export {
     calculateCategories,
     filterProducts
