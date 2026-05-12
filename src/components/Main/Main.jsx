@@ -26,7 +26,7 @@ function Main() {
     useEffect(
         () => {
             filterProducts(search, data, setFilteredProducts, setCount, count);
-        }, [search, data]
+        }, [search, data, count]
     );
 
     return (
