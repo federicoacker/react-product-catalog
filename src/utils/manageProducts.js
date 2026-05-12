@@ -23,7 +23,7 @@ function calculateCategories(products) {
     return categoryObjectArray;
 }
 
-function filterProducts(searchObject, products, setFilteredProducts, setCount, count) {
+function filterProducts(searchObject, products, setFilteredProducts, setCount) {
     setCount(0);
     const sortedProductArray = sortProducts(products, searchObject.sorting);
     console.log(products);
